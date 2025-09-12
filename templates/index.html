@@ -12,6 +12,32 @@
 
 <p><strong>Всего:</strong> {{ '{:.2f}'.format(total) }}</p>
 
+
+<div class="mb-3">
+  <form method="get" action="{{ url_for('index') }}" class="d-flex align-items-center gap-2">
+    <label for="category" class="form-label mb-0">Фильтр по категории:</label>
+    <select name="category" id="category" class="form-select" style="width:auto;" onchange="this.form.submit()">
+      <option value="">Все</option>
+      {% for c in categories %}
+        <option value="{{ c }}" {% if selected == c %}selected{% endif %}>{{ c }}</option>
+      {% endfor %}
+    </select>
+  </form>
+</div>
+
+<div class="mb-3">
+  <form method="get" action="{{ url_for('index') }}" class="d-flex align-items-center gap-2">
+    <label for="start_date" class="form-label mb-0">С:</label>
+    <input type="date" id="start_date" name="start_date" class="form-control" style="width:auto;"
+           value="{{ start_date if start_date else '' }}">
+    <label for="end_date" class="form-label mb-0">По:</label>
+    <input type="date" id="end_date" name="end_date" class="form-control" style="width:auto;"
+           value="{{ end_date if end_date else '' }}">
+    <button type="submit" class="btn btn-secondary">Фильтровать</button>
+  </form>
+</div>
+
+
 <table class="table table-striped">
   <thead>
     <tr>

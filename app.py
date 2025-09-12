@@ -14,10 +14,45 @@ db.init_app(app)
 
 @app.route("/")
 def index():
-    # Список всех расходов (по дате вниз)
-    expenses = Expense.query.order_by(Expense.date.desc()).all()
+    category = request.args.get("category", type=str)
+    start_date = request.args.get("start_date", type=str)
+    end_date = request.args.get("end_date", type=str)
+
+    query = Expense.query.order_by(Expense.date.desc())
+
+    if category:
+        query = query.filter(Expense.category == category)
+
+    if start_date:
+        try:
+            start = datetime.datetime.strptime(start_date, "%Y-%m-%d").date()
+            query = query.filter(Expense.date >= start)
+        except ValueError:
+            pass
+
+    if end_date:
+        try:
+            end = datetime.datetime.strptime(end_date, "%Y-%m-%d").date()
+            query = query.filter(Expense.date <= end)
+        except ValueError:
+            pass
+
+    expenses = query.all()
     total = sum(e.amount for e in expenses)
-    return render_template("index.html", expenses=expenses, total=total)
+
+    categories = db.session.query(Expense.category).distinct().all()
+    categories = [c[0] for c in categories]
+
+    return render_template(
+        "index.html",
+        expenses=expenses,
+        total=total,
+        categories=categories,
+        selected=category,
+        start_date=start_date,
+        end_date=end_date,
+    )
+
 
 @app.route("/add", methods=["GET", "POST"])
 def add_expense():
