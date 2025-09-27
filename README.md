@@ -38,7 +38,8 @@ python app.py
 http://127.0.0.1:5000/
 
 
-Структура проекта:
+## 📂 Структура проекта
+
 finance-tracker/
 │
 ├── app.py                # Flask-приложение (роуты, логика)
@@ -49,4 +50,5 @@ finance-tracker/
 │   ├── index.html
 │   └── add_expense.html
 └── .gitignore
+
 
