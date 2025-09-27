@@ -19,10 +19,10 @@
 
 ## ⚙️ Установка и запуск
 1. Клонируйте репозиторий:
-   ```
-   git clone https://github.com/username/finance-tracker.git
-   cd finance-tracker
-   ```
+```
+git clone https://github.com/username/finance-tracker.git
+cd finance-tracker
+```
 
 2. Создайте и активируйте виртуальное окружение (рекомендуется):
 ```
@@ -41,7 +41,8 @@ pip install -r requirements.txt
 python app.py
 ```
 
-```5. Откройте в браузере
+5. Откройте в браузере
+```
 http://127.0.0.1:5000/
 ```
 
@@ -59,6 +60,7 @@ finance-tracker/
 │   └── add_expense.html
 └── .gitignore
 ```
+
 
 
 
