@@ -41,7 +41,7 @@ pip install -r requirements.txt
 python app.py
 ```
 
-5. Откройте в браузере
+6. Откройте в браузере
 ```
 http://127.0.0.1:5000/
 ```
@@ -60,6 +60,7 @@ finance-tracker/
 │   └── add_expense.html
 └── .gitignore
 ```
+
 
 
 
