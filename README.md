@@ -29,13 +29,13 @@ source venv/bin/activate   # для Linux / MacOS
 venv\Scripts\activate      # для Windows
 
 3. Установите зависимости
-   pip install -r requirements.txt
+pip install -r requirements.txt
 
 4. Запустите приложение
-   python app.py
+python app.py
 
 5. Откройте в браузере
-   http://127.0.0.1:5000/
+http://127.0.0.1:5000/
 
 
 Структура проекта:
@@ -49,3 +49,4 @@ finance-tracker/
 │   ├── index.html
 │   └── add_expense.html
 └── .gitignore
+
